@@ -1,8 +1,4 @@
-Neosnippet-snippets
+my-vim-snippets
 ===================
 
-The standard snippets repository for
-[neosnippet](https://github.com/Shougo/neosnippet.vim).
-
-You can fork or send pull request.
-
+Neosnippet-snippetsを編集した自分用スニペット
