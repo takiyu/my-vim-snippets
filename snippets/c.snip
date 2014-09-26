@@ -90,14 +90,14 @@ abbr        enum{}
 # hard-tab is necessary; C indent doesn't support this.
 snippet main
 	int main(int argc, char const* argv[]){
-  ${0:TARGET}
-  return 0;
- }
+		${0:TARGET}
+		return 0;
+	}
 
 # #include <...>
 snippet inc
 alias   #inc, #include
-	#include <${1:stdio}.h>${0}
+    #include <${1:stdio}.h>${0}
 # #include "..."
 snippet inc2
 alias   #inc2, #include2
@@ -144,7 +144,7 @@ abbr    fprintf(..., "...\n", ...);
 
 snippet comment
 alias /*
-	/* ${1:#:comment} */
+	/*${1:#:comment}*/
 	${0}
 
 snippet sizeof
