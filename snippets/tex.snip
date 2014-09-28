@@ -366,3 +366,80 @@ snippet cite
 alias \cite
 	\cite{${1}}${0}
 
+# ========== my snippet ==========
+# インライン数式
+snippet inline equation
+	$${1}$${0}
+
+# 改行
+snippet newline
+alias \newline
+    \newline${0}
+snippet newline with indent
+alias par
+    \par${0}
+
+# 参照
+snippet     siki ref
+    式(\ref{${1}})${0}
+snippet     zu ref
+alias       du ref
+    図(\ref{${1}})${0}
+snippet     hyou ref
+    表(\ref{${1}})${0}
+
+# 括弧
+snippet left right
+alias \left( \right)
+    \left(${1}\right)${0}
+
+snippet left
+alias \left(
+    \left(${0}
+
+snippet right
+alias \right(
+    \right)${0}
+
+# ---単記号---
+snippet infty
+alias mugendai
+	\infty${0}
+
+snippet pi
+alias \pi
+	\pi${0}
+
+# ---数式---
+snippet sin
+alias \sin
+	\sin{${1}}${0}
+snippet cos
+alias \cos
+	\cos{${1}}${0}
+snippet tan
+alias \tan
+	\tan{${1}}${0}
+
+# 分数
+snippet frac
+alias bunsu
+	\frac{${1}}{${2}}${0}
+
+snippet sqrt
+    \sqrt{${1}}${0}
+snippet sqrt[n]
+    \sqrt[${1}]{${2}}${0}
+
+snippet limit
+alias \lim
+	\lim_{${1} \rightarrow ${2}}{${0}}
+
+snippet sum
+alias \sum
+	\sum_{${1}}^{${2}}{${0}}
+
+snippet integral
+alias \int
+	\int_{${1}}^{${2}}{${0}}
+
