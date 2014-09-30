@@ -1,5 +1,5 @@
 snippet	module
- abbr	module() endmodule;
+  abbr	module() endmodule;
   module ${1:#:module_name} (
    ${2:#:port_list}
   );
@@ -13,12 +13,12 @@ endmodule//$1
  #	${2}
 
 snippet	regarray
- abbr	[] reg;
+  abbr	[] reg;
   reg [${1}:${2:0}] ${3:#:reg_name};
   ${4}
 
 snippet	regmem
- abbr	[] reg [];
+  abbr	[] reg [];
   reg [${1}:${2:0}] ${3:#:reg_name} [${4}:${5:0}];
   ${6}
 
@@ -28,32 +28,32 @@ snippet	regmem
  #	${2}
 
 snippet	wirearray
- abbr	[] wire;
+  abbr	[] wire;
   wire [${1}:${2:0}] ${3:#:wire_name};
   ${4}
 
 snippet	input
- abbr	input;
+  abbr	input;
   input ${1:#:input_name}
   ${2}
 
 snippet	inputarray
- abbr	[] input;
+  abbr	[] input;
   input  [${1}:${2:0}] ${3:#:input_name}
   ${4}
 
 snippet	output
- abbr	output;
+  abbr	output;
   output ${1:#:output_name}
   ${2}
 
 snippet	outputarray
- abbr	[] output;
+  abbr	[] output;
   output [${1}:${2:0}] ${3:#:output_name};
   ${4}
 
 snippet	function
- abbr	function  endfunction;
+  abbr	function  endfunction;
   function ${1:#:function_name};
    ${2:#:portlist};
    begin
@@ -87,28 +87,28 @@ snippet	casex
      ${8}
 
 snippet	always
- abbr	always() begin end
+  abbr	always() begin end
   always@(${1:sensitivity_list}) begin
    ${2:code}
   end
      ${3}
 
 snippet always_posCLK
- abbr	always(posedge CLK) begin end
+  abbr	always(posedge CLK) begin end
   always@(posedge CLK) begin
    ${1:code}
   end
      ${2}
 
 snippet	if
- abbr	if() begin end
+  abbr	if() begin end
   if(${1:#:condition}) begin
      ${2:code}
   end${3}
      ${4}
 
 snippet if_elif_else
- abbr	if() else if() else
+  abbr	if() else if() else
   if(${1:#:condition1}) begin
      ${2:code1}
   end else if(${3:#:condition2}) begin
@@ -119,7 +119,7 @@ snippet if_elif_else
      ${6}
 
 snippet if_else
- abbr	if() else end
+  abbr	if() else end
   if(${1:#:condition}) begin
      ${2:code1}
   end else begin
@@ -128,24 +128,24 @@ snippet if_else
      ${4}
 
 snippet	initial
- abbr	initial begin end
+  abbr	initial begin end
   initial begin
      ${1:code}
   end
      ${2}
 
 snippet	ternary
- abbr	a?b:c
+  abbr	a?b:c
   ${1:a} ? ${2:b} : ${3:c}
      ${4}
 
 snippet parameter
- abbr parameter
+  abbr parameter
   parameter ${1:parameter_name} = ${2:parameter_val};
      ${3}
 
 snippet define
- abbr define
+  abbr define
   `define ${1:define_name} ${2:define_val};
 
 snippet blockram_read_first
