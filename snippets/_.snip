@@ -39,12 +39,3 @@ alias       fnamelc
 options     word
     `substitute(bufname('%') =='[Command Line]' ? expand('#:t:r:r:r') : expand('%:t:r:r:r'), '\%(_\(.\)\)', '\u\1', 'g')`${0}
 
-# ========== my snippet ==========
-snippet     sharp
-    #
-
-snippet     and
-    &
-
-snippet     dollar
-    $

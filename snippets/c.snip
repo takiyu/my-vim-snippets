@@ -167,3 +167,59 @@ abbr fopen("...", "...");
 snippet fgets
 abbr fgets(row, length, file);
 	fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
+
+#========my snippets========
+snippet file_write_operation
+    FILE *${1:fp};
+	if ((fp = fopen(${1:#:FILE}, "w")) == NULL) {
+		fprintf(stderr, "Error: cannot open file %s\n", $1);
+		exit(1);
+	}
+
+	fprintf($1, "text\n");
+
+    fputc('a', $1);   
+
+	fclose($1);
+    ${0:TARGET}
+
+snippet file_read_operation
+    FILE *${1:fp};
+	if ((fp = fopen(${1:#:FILE}, "r")) == NULL) {
+		fprintf(stderr, "Error: cannot open file %s\n", $1);
+		exit(1);
+	}
+
+    int c;
+    while ((c = fgetc($1)) != EOF) { }
+
+    while (fscanf($1, "", &) != EOF) { }
+
+	fclose($1);
+    ${0:TARGET}
+
+snippet va_func
+alias kahen_func
+    #include <stdarg.h>
+    void va_func(int num, ...)
+    {
+        int i;
+        va_list va_p;
+
+        va_start(va_p, num);
+        for (i = 0; i < num; i++) {
+            va_arg(va_p, ${1:int});
+            ${0:TARGET}
+        }
+        va_end(va_p);
+        return;
+    }
+
+snippet malloc_with_err
+    ${1:#:array} = malloc(sizeof(${2}) * ${3});
+    if ($1 == NULL) {
+        fprintf(stderr, "Cannot alocate memory.");
+        exit(1);
+    }
+    free($1);
+
