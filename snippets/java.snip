@@ -48,9 +48,9 @@ snippet while
     }
 
 snippet for
-    for (${1}; ${2}; ${3}) {
-        ${4:TARGET}
-    }
+	for(int ${1} = 0; $1 < ${2}; $1++) {
+		${0:TARGET}
+	}
 
 snippet foreach
 alias   fore
