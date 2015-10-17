@@ -30,6 +30,12 @@ abbr        for(){}
 	}
 
 snippet     for int
+abbr        for(int){}
+	for(int $1 = 0; $1 < ${2}; $1++) {
+		${0:TARGET}
+	}
+
+snippet     for int 2
 abbr        int; for(){}
     int ${1};
 	for($1 = 0; $1 < ${2}; $1++) {

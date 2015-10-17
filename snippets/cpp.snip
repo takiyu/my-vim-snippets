@@ -93,6 +93,7 @@ abbr        dynamic_cast<>()
 snippet     helloworld
 abbr        #include<iostream> int main...
     #include <iostream>
+    using namespace std;
 
     int main(int argc, char const* argv[]) {
         std::cout << "hello, world!" << std::endl;
@@ -100,6 +101,10 @@ abbr        #include<iostream> int main...
     }
 
 snippet     cout ln
+options     head
+  cout << ${0:TARGET} << endl;
+
+snippet     cout ln (std:)
 options     head
   std::cout << ${0:TARGET} << std::endl;
 
