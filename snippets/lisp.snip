@@ -1,0 +1,52 @@
+snippet print
+	(print ${1})
+
+snippet oddp
+abbr	2n+1
+	(oddp ${1})
+snippet evenp
+abbr	2n
+	(evenp ${1})
+snippet equal
+abbr	equal-deep
+	(equal ${1} ${2})
+
+snippet and
+	(and ${1} ${2})
+snippet or_
+	(or ${1} ${2})
+
+snippet     expt
+alias		jijo
+	(expt ${1} 2)
+	
+
+snippet defun
+	(defun ${1} (${2})
+		${3})
+snippet cons
+	(cons ${1} ${2})
+snippet list
+	(list ${1} ${2})
+snippet nth
+	(nth ${1} ${2})
+snippet append
+	(append ${1} ${2})
+
+snippet null
+	(null ${1})
+snippet length
+	(length ${1})
+snippet rest
+	(rest ${1})
+
+snippet cond
+	(cond (${1} ${2})
+		  (${3} ${4})
+		  (t ${5}))
+snippet if-else
+	(if ${1} ${2} ${3})
+snippet case
+	(case ${1}
+	     (${2} ${3})
+		 ${4})
