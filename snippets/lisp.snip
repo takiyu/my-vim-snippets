@@ -3,7 +3,7 @@ snippet print
 snippet format
 	(format t "${1}")
 snippet format-object
-	(format t "~S" ${1})
+	(format t "~S~%" ${1})
 snippet read
 	(read)
 
@@ -79,7 +79,8 @@ snippet count
 	(count ${1} ${2})
 
 snippet cond
-	(cond (${1} ${2})
+	(cond
+		(${1} ${2})
 		(${3} ${4})
 		(t ${5})
 	)
@@ -88,8 +89,8 @@ snippet if-else
 snippet case
 	(case ${1}
 		(${2} ${3})
-		(${3} ${4})
-		(t ${5})
+		(${4} ${5})
+		(t ${6})
 	)
 
 snippet setf
@@ -102,9 +103,13 @@ snippet mapcar1
 snippet mapcar2
 	(mapcar #'${1} ${2} ${3})
 snippet mapcar-lambda1
-	(mapcar #'(lambda(${1}) ${2}) ${3})
+	(mapcar #'(lambda(${1})
+		${2}
+	) ${3} )
 snippet mapcar-lambda2
-	(mapcar #'(lambda(${1} ${2}) ${2}) ${3} ${4})
+	(mapcar #'(lambda(${1} ${2})
+		${3}
+	) ${4} ${5} )
 snippet find-if
 	(find-if #'${1} ${2})
 snippet remove-if
