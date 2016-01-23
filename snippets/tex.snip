@@ -201,7 +201,7 @@ alias   \begin{document} \document
 
 snippet figure
 alias   \begin{figure} \figure
-	\begin{figure}
+	\begin{figure}[!h]
 		\centering
 		\includegraphics[${1:width=}]{${2}}
 		\caption{${3}}
@@ -234,7 +234,7 @@ alias   \begin{flushright} \flushright
 
 snippet minipage
 alias   \begin{minipage} \minipage
-	\begin{minipage}
+	\begin{minipage}{0.5\hsize}
 		${1:TARGET}
 	\end{minipage}
 
