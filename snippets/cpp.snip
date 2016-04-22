@@ -40,26 +40,26 @@ abbr    try catch
 
 snippet for int
 abbr    for(int){}
-    for(int ${1} = 0; $1 < ${2}; $1++) {
+    for (int ${1} = 0; $1 < ${2}; $1++) {
         ${0:TARGET}
     }
 
 # range based for ( C++11 feature )
 snippet for_CPP11
 abbr    for(:){}
-    for(${1:auto&& }${2:var} : ${3:container}) {
+    for (${1:auto&& }${2:var} : ${3:container}) {
         ${0:TARGET}
     }
 
 # lambda expression ( C++11 feature )
 snippet lambda
 abbr    [](){}
-    [${1}](${2})${3}{ ${4:TARGET} }
+    [${1}](${2})${3} { ${4:TARGET} }
 
 # scoped enumeration ( C++11 feature )
 snippet enum_scoped
 abbr    enum struct{}
-    enum struct{ ${1:TARGET} }
+    enum struct { ${1:TARGET} }
 
 # static assert ( C++11 feature )
 snippet static_assert
