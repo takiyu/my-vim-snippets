@@ -13,16 +13,30 @@ snippet template
 abbr    template <T>
     template <typename ${1:T}>
 
-snippet class
+snippet class-inline
+abbr    class {}
+    class ${1:#:name} {
+      public:
+        $1(${2}) {}
+        ~$1() {}
+      private:
+    };
+
+snippet class-outline
 abbr    class {}
     class ${1:#:name} {
       public:
         $1(${2});
+        ~$1();
       private:
     };
+
     $1::$1($2) {
-        ${0:TARGET}
     }
+
+    $1::~$1() {
+    }
+    ${0:target}
 
 snippet class-without-constructor
 abbr    class {}
@@ -41,6 +55,12 @@ abbr    try catch
 snippet for size_t
 abbr    for(size_t){}
     for (size_t ${1} = 0; $1 < ${2}; $1++) {
+        ${0:TARGET}
+    }
+
+snippet for int
+abbr    for(int){}
+    for (int ${1} = 0; $1 < ${2}; $1++) {
         ${0:TARGET}
     }
 
@@ -104,6 +124,62 @@ options head
     std::cout << ${0:TARGET} << std::endl;
 
 snippet using_namespace
-abbr    using namespace
+alias   using namespace
     using namespace ${1:std};
     ${0}
+
+snippet string
+alias   str
+    std::string
+
+snippet const_string
+alias   str_const
+    const std::string&
+
+snippet vector
+alias   vec
+    std::vector<${1}>${0}
+
+snippet const_vector
+alias   vec_const
+    const std::vector<${1}>&${0}
+
+snippet array
+alias   arr
+    std::array<${1}, ${2}>${0}
+
+snippet const_arr
+alias   arr_const
+    const std::array<${1}, ${2}>&${0}
+
+snippet map
+    std::map<${1}, ${2}>${0}
+
+snippet const_map
+alias   map_const
+    const std::map<${1}, ${2}>&${0}
+
+snippet shared_ptr
+alias   ptr_shared
+    std::shared_ptr<${1}>${0}
+
+snippet shared_ptr_make
+alias   make_shared
+    std::make_shared<${1}>(${2});${0}
+
+snippet unique_ptr
+alias   ptr_unique
+    std::unique_ptr<${1}>${0}
+
+snippet unique_ptr_make
+alias   make_unique
+    std::make_unique<${1}>(${2});${0}
+
+snippet move
+    std::move(${0});
+
+snippet forward
+    std::forward<${1}>(${0});
+
+snippet auto
+    auto&&${0}
