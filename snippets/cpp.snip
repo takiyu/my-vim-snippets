@@ -21,6 +21,7 @@ abbr    class {}
         ~$1() {}
       private:
     };
+    ${0}
 
 snippet class-outline
 abbr    class {}
@@ -36,13 +37,94 @@ abbr    class {}
 
     $1::~$1() {
     }
-    ${0:target}
+    ${0}
 
-snippet class-without-constructor
+snippet class-empty
 abbr    class {}
     class ${1:#:name} {
         ${2}
     };
+
+snippet class-full-inline
+abbr    class {}
+    class ${1:#:name} {
+      public:
+        $1(${2}) {}
+        $1(const $1& lhs) {}
+        $1($1&& lhs) {}
+        $1& operator=(const $1& lhs) { return *this; }
+        $1& operator=($1&& lhs) { return *this; }
+        ~$1() {}
+      private:
+    };${0}
+
+snippet class-full-outline
+abbr    class {}
+    class ${1:#:name} {
+      public:
+        $1(${2});
+        $1(const $1&);
+        $1($1&&);
+        $1& operator=(const $1&);
+        $1& operator=($1&&);
+        ~$1();
+      private:
+    };
+
+    $1::$1($2) {}
+
+    $1::$1(const $1& lhs) {}
+
+    $1::$1($1&& lhs) {}
+
+    $1& $1::operator=(const $1& lhs) { return *this; }
+
+    $1& $1::operator=($1&& lhs) { return *this; }
+
+    $1::~$1() {}
+    ${0}
+
+snippet class-pimpl
+abbr    class {}
+alias   pimpl
+    class ${1:#:name} {
+      public:
+        $1(${2});
+        $1(const $1&);
+        $1($1&&);
+        $1& operator=(const $1&);
+        $1& operator=($1&&);
+        ~$1();
+      private:
+        class Impl;
+        std::unique_ptr<Impl> m_impl;
+    };
+
+    class $1::Impl {
+    public:
+        Impl() {}
+        Impl(const Impl& lhs) {}
+        Impl(Impl&&) = delete;
+        Impl& operator=(const Impl& lhs) { return *this; }
+        Impl& operator=(Impl&&) = delete;
+        ~Impl() {}
+    };
+
+    $1::$1($2) : m_impl(std::make_unique<Impl>($2)) {}
+
+    $1::$1(const $1& lhs) : m_impl(std::make_unique<Impl>(*lhs.m_impl)) {}
+
+    $1::$1($1&&) = default;
+
+    $1& $1::operator=(const $1& lhs) {
+        *m_impl = *lhs.m_impl;
+        return *this;
+    }
+
+    $1& $1::operator=($1&&) = default;
+
+    $1::~$1() = default;
+    ${0}
 
 snippet try
 abbr    try catch
