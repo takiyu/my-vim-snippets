@@ -52,22 +52,22 @@ abbr    try catch
         ${3}
     }
 
-snippet for size_t
+snippet for-size_t
 abbr    for(size_t){}
     for (size_t ${1} = 0; $1 < ${2}; $1++) {
         ${0:TARGET}
     }
 
-snippet for int
+snippet for-int
 abbr    for(int){}
     for (int ${1} = 0; $1 < ${2}; $1++) {
         ${0:TARGET}
     }
 
 # range based for ( C++11 feature )
-snippet for_CPP11
+snippet for-CPP11
 abbr    for(:){}
-    for (auto&& ${1:v} : ${2:container}) {
+    for (auto&& ${1}: ${2}) {
         ${0:TARGET}
     }
 
@@ -129,34 +129,27 @@ alias   namespace-using
     ${0}
 
 snippet string
-alias   str
     std::string
 
 snippet const_string
-alias   str_const
     const std::string&
 
 snippet vector
-alias   vec
     std::vector<${1}>${0}
 
 snippet const_vector
-alias   vec_const
     const std::vector<${1}>&${0}
 
 snippet array
-alias   arr
     std::array<${1}, ${2}>${0}
 
 snippet const_arr
-alias   arr_const
     const std::array<${1}, ${2}>&${0}
 
 snippet map
     std::map<${1}, ${2}>${0}
 
 snippet const_map
-alias   map_const
     const std::map<${1}, ${2}>&${0}
 
 snippet shared_ptr
