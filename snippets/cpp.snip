@@ -238,23 +238,21 @@ snippet shared_ptr
 alias   ptr_shared
     std::shared_ptr<${1}>${0}
 
-snippet shared_ptr_make
-alias   make_shared
-    std::make_shared<${1}>(${2});${0}
+snippet make_shared
+    std::make_shared<${1}>(${2})${0}
 
 snippet unique_ptr
 alias   ptr_unique
     std::unique_ptr<${1}>${0}
 
-snippet unique_ptr_make
-alias   make_unique
-    std::make_unique<${1}>(${2});${0}
+snippet make_unique
+    std::make_unique<${1}>(${2})${0}
 
 snippet move
-    std::move(${0});
+    std::move(${0})
 
 snippet forward
-    std::forward<${1}>(${0});
+    std::forward<${1}>(${0})
 
 snippet auto
     auto&&${0}
