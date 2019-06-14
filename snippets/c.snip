@@ -29,16 +29,15 @@ abbr    for(){}
         ${0:TARGET}
     }
 
-snippet for int
-abbr    for(int){}
-    for (int ${1} = 0; $1 < ${2}; $1++) {
+snippet for-size_t
+abbr    for(size_t){}
+    for (size_t ${1} = 0; $1 < ${2}; $1++) {
         ${0:TARGET}
     }
 
-snippet for int 2
-abbr    int; for(){}
-    int ${1};
-    for ($1 = 0; $1 < ${2}; $1++) {
+snippet for-int
+abbr    for(int){}
+    for (int ${1} = 0; $1 < ${2}; $1++) {
         ${0:TARGET}
     }
 
@@ -174,7 +173,7 @@ snippet fgets
 abbr fgets(row, length, file);
     fgets(${0:ROW}, ${1:LENGTH}, ${2:FILE});
 
-#========my snippets========
+#======== my snippets ========
 snippet file_write_operation
     FILE *${1:fp};
     if ((fp = fopen(${1:#:FILE}, "w")) == NULL) {
