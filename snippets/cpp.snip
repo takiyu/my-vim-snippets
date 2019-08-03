@@ -134,22 +134,11 @@ abbr    try catch
         ${3}
     }
 
-snippet for-size_t
-abbr    for(size_t){}
-    for (size_t ${1} = 0; $1 < ${2}; $1++) {
-        ${0:TARGET}
-    }
-
-snippet for-int
-abbr    for(int){}
-    for (int ${1} = 0; $1 < ${2}; $1++) {
-        ${0:TARGET}
-    }
-
 # range based for ( C++11 feature )
-snippet for-CPP11
+snippet for-auto
 abbr    for(:){}
-    for (auto&& ${1}: ${2}) {
+alias   for-CPP11
+    for (auto&& ${1} : ${2}) {
         ${0:TARGET}
     }
 
@@ -256,3 +245,6 @@ snippet forward
 
 snippet auto
     auto&&${0}
+
+snippet make_tuple
+    std::make_tuple(${2})${0}
