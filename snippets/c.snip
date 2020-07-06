@@ -35,6 +35,18 @@ abbr    for(int){}
         ${0:TARGET}
     }
 
+snippet for-int32
+abbr    for(int){}
+    for (int32_t ${1} = 0; $1 < ${2}; $1++) {
+        ${0:TARGET}
+    }
+
+snippet for-uint32
+abbr    for(int){}
+    for (uint32_t ${1} = 0; $1 < ${2}; $1++) {
+        ${0:TARGET}
+    }
+
 snippet for-size_t
 abbr    for(size_t){}
 alias   for
