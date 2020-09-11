@@ -149,7 +149,7 @@ abbr    [](){}
 
 # scoped enumeration ( C++11 feature )
 snippet enum_scoped
-abbr    enum struct{}
+abbr    enum class {}
     enum struct { ${1:TARGET} }
 
 # static assert ( C++11 feature )
@@ -163,7 +163,7 @@ abbr    namespace{}
 options head
     namespace ${1:#:name} {
         ${0:TARGET}
-    }  // namespace ${1:anonymous}
+    }  // namespace
 
 snippet static_cast
 abbr    static_cast<>()
@@ -223,31 +223,49 @@ snippet map
 snippet const_map
     const std::map<${1}, ${2}>&${0}
 
+snippet unordered_map
+    std::map<${1}, ${2}>${0}
+
+snippet const_unordered_map
+    const std::map<${1}, ${2}>&${0}
+
+snippet set
+    std::set<${1}>${0}
+
+snippet const_set
+    const std::set<${1}>&${0}
+
+snippet unordered_set
+    std::set<${1}>${0}
+
+snippet const_unordered_set
+    const std::set<${1}>&${0}
+
 snippet shared_ptr
 alias   ptr_shared
     std::shared_ptr<${1}>${0}
 
 snippet make_shared
-    std::make_shared<${1}>(${2})${0}
+    std::make_shared<${1}>(${0}
 
 snippet unique_ptr
 alias   ptr_unique
     std::unique_ptr<${1}>${0}
 
 snippet make_unique
-    std::make_unique<${1}>(${2})${0}
+    std::make_unique<${1}>(${0}
 
 snippet move
     std::move(${0})
 
 snippet forward
-    std::forward<${1}>(${0})
+    std::forward<${1}>(${0}
 
 snippet auto
     auto&&${0}
 
 snippet make_tuple
-    std::make_tuple(${2})${0}
+    std::make_tuple(${0}
 
 snippet get
-    std::get<${1}>(${0})
+    std::get<${1}>(${0}
