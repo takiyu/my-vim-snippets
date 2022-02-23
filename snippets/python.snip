@@ -64,17 +64,15 @@ options     head
     for ${1:#:value} in ${2:#:list}:
         ${0:TARGET}
 
+snippet     for-range
+abbr        for ... in range(): ...
+    for ${1:#:value} in range(${2:#:length}):
+        ${0:TARGET}
+
 snippet     if
 abbr        if ...: ...
 options     head
     if ${1:#:condition}:
-        ${0:TARGET}
-
-snippet     ifmain
-abbr        if __name__ == '__main__': ...
-alias       main
-options     head
-    if __name__ == '__main__':
         ${0:TARGET}
 
 snippet     tryexcept
@@ -105,13 +103,27 @@ options     head
     with ${1:open}(${2:#:filename, mode}) as ${3:f}:
         ${0:TARGET}
 
-snippet     filter
+snippet     with-json-load
+alias       json-load
+    with open(${1:#:filename}, 'r') as f:
+        data = json.load(f)
+
+snippet     with-json-dump
+alias       json-dump
+    with open(${1:#:filename}, 'w') as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+snippet     list-inline
+abbr        [x for x in {list} if {condition}]
+    [$1 for ${1:x} in ${2:#:list}]
+
+snippet     list-if
+alias       filter
 abbr        [x for x in {list} if {condition}]
     [$1 for ${1:x} in ${2:#:list} if ${3:#:condition}]
 
 snippet     print
-options     word
-  print(${0:TARGET})
+    print(${0:TARGET})
 
 snippet     coding
 abbr        # -*- coding ...
@@ -128,3 +140,16 @@ abbr        setattr(..., ...)
 snippet     pdb
 abbr        import pdb..
     import pdb; pdb.set_trace()
+
+snippet     ifmain
+abbr        if __name__ == '__main__': ...
+alias       main
+options     head
+    if __name__ == '__main__':
+        ${0:TARGET}
+
+snippet     helloworld
+    # -*- coding: utf-8 -*-
+
+    if __name__ == '__main__':
+        print('helloworld')
