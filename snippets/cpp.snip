@@ -137,7 +137,7 @@ abbr    try catch
 # range based for ( C++11 feature )
 snippet for-auto
 abbr    for(:){}
-alias   for-CPP11
+alias   for
     for (auto&& ${1} : ${2}) {
         ${0:TARGET}
     }
@@ -200,57 +200,70 @@ alias   namespace-using
     ${0}
 
 snippet string
-    std::string
+alias str
+    std::string ${0}
 
 snippet const_string
-    const std::string&
+alias cstr
+    const std::string& ${0}
 
 snippet vector
-    std::vector<${1}>${0}
+alias vec
+    std::vector<${1}> ${0}
 
 snippet const_vector
-    const std::vector<${1}>&${0}
+alias cvec
+    const std::vector<${1}>& ${0}
 
 snippet array
-    std::array<${1}, ${2}>${0}
+alias arr
+    std::array<${1}, ${2}> ${0}
 
 snippet const_arr
-    const std::array<${1}, ${2}>&${0}
+alias carr
+    const std::array<${1}, ${2}>& ${0}
 
 snippet map
-    std::map<${1}, ${2}>${0}
+alias map
+    std::map<${1}, ${2}> ${0}
 
 snippet const_map
-    const std::map<${1}, ${2}>&${0}
+alias cmap
+    const std::map<${1}, ${2}>& ${0}
 
 snippet unordered_map
-    std::map<${1}, ${2}>${0}
+alias umap
+    std::map<${1}, ${2}> ${0}
 
 snippet const_unordered_map
-    const std::map<${1}, ${2}>&${0}
+alias cumap
+    const std::map<${1}, ${2}>& ${0}
 
 snippet set
-    std::set<${1}>${0}
+    std::set<${1}> ${0}
 
 snippet const_set
-    const std::set<${1}>&${0}
+alias cset
+    const std::set<${1}>& ${0}
 
 snippet unordered_set
-    std::set<${1}>${0}
+alias uset
+    std::set<${1}> ${0}
 
 snippet const_unordered_set
-    const std::set<${1}>&${0}
+alias cuset
+    const std::set<${1}>& ${0}
 
 snippet shared_ptr
 alias   ptr_shared
-    std::shared_ptr<${1}>${0}
+    std::shared_ptr<${1}> ${0}
 
 snippet make_shared
     std::make_shared<${1}>(${0}
 
 snippet unique_ptr
 alias   ptr_unique
-    std::unique_ptr<${1}>${0}
+    std::unique_ptr<${1}> ${0}
 
 snippet make_unique
     std::make_unique<${1}>(${0}
@@ -262,7 +275,7 @@ snippet forward
     std::forward<${1}>(${0}
 
 snippet auto
-    auto&&${0}
+    auto&& ${0}
 
 snippet make_tuple
     std::make_tuple(${0}
